@@ -15,6 +15,8 @@ import java.util.List;
  */
 public class SearchCommand extends AbstractCommand {
 
+    private static final int EDITIONS_PER_PAGE = 8;
+
     public SearchCommand() {
         super();
     }
@@ -25,17 +27,20 @@ public class SearchCommand extends AbstractCommand {
 
     @Override
     public Page executeGet(HttpServletRequest request, HttpServletResponse response) {
-        //// TODO: 26.07.2016 add content
+        final EditionDao editionDao = DaoManager.getEditionDao();
+        final int EDITIONS_COUNT = editionDao.rowsCount();
+        final int CURRENT_PAGE = 1;
+        final int OFFSET = 0;
+        Editions.setPage(request, EDITIONS_COUNT, EDITIONS_PER_PAGE, CURRENT_PAGE,
+                () -> editionDao.findAllByUpdateTimeDesc(EDITIONS_PER_PAGE, OFFSET));
         return Page.SEARCH;
     }
 
     @Override
     public Page executePost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedOperationException {
-        final int editionsPerPage = 8;
-        final int editionsCount = DaoManager.getEditionDao().rowsCount();
         final EditionDao editionDao = DaoManager.getEditionDao();
+        final int EDITIONS_COUNT = editionDao.rowsCount();
         final List<Category> categories = DaoManager.getCategoryDao().findAll();
-        final Editions editions = new Editions();
         final Category category;
         final String magazine = request.getParameter("magazine");
         final int currentPage;
@@ -46,29 +51,29 @@ public class SearchCommand extends AbstractCommand {
             page = 1;
         }
         currentPage = page;
-        request.setAttribute("editionsCount", editionsCount);
+        request.setAttribute("editionsCount", EDITIONS_COUNT);
         request.setAttribute("categories", categories);
         if (magazine == null || magazine.length() == 0) {
-            editions.setPage(request, editionsPerPage);
+            Editions.setPage(request, EDITIONS_PER_PAGE);
         } else {
             category = getCategory(request);
             request.setAttribute("magazine", magazine);
             if (category != null) {
                 request.setAttribute("category", category);
-                editions.setPage(request,
+                Editions.setPage(request,
                         editionDao.rowsCountLikeNameByCategoryId(magazine, category.getId()),
-                        editionsPerPage,
+                        EDITIONS_PER_PAGE,
                         currentPage,
-                        () -> editionDao.findLikeNameByCategoryIdByUpdateTimeDesc(magazine, category.getId(), editionsPerPage,
-                                editionsPerPage * (currentPage - 1))
+                        () -> editionDao.findLikeNameByCategoryIdByUpdateTimeDesc(magazine, category.getId(), EDITIONS_PER_PAGE,
+                                EDITIONS_PER_PAGE * (currentPage - 1))
                 );
             } else {
-                editions.setPage(request,
+                Editions.setPage(request,
                         editionDao.rowsCountLikeName(magazine),
-                        editionsPerPage,
+                        EDITIONS_PER_PAGE,
                         currentPage,
-                        () -> editionDao.findLikeNameByUpdateTimeDesc(magazine, editionsPerPage,
-                                editionsPerPage * (currentPage - 1))
+                        () -> editionDao.findLikeNameByUpdateTimeDesc(magazine, EDITIONS_PER_PAGE,
+                                EDITIONS_PER_PAGE * (currentPage - 1))
                 );
             }
         }

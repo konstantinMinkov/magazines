@@ -15,7 +15,7 @@ import java.util.function.Supplier;
  */
 public class Editions {
 
-    public void setPage(HttpServletRequest request, int editionsPerPage) {
+    public static void setPage(HttpServletRequest request, int editionsPerPage) {
         final EditionDao editionDao = DaoManager.getEditionDao();
         final int editionsCount = editionDao.rowsCount();
         int page;
@@ -31,7 +31,7 @@ public class Editions {
         );
     }
 
-    public void setPage(HttpServletRequest request, int editionsCount, int editionsPerPage, int currentPage,
+    public static void setPage(HttpServletRequest request, int editionsCount, int editionsPerPage, int currentPage,
                         Supplier<List<Edition>> editionsSupplier) {
         final List<Edition> editions = editionsSupplier.get();
         if (currentPage * editionsPerPage < editionsCount) {

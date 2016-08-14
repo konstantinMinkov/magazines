@@ -16,6 +16,10 @@ public interface Command {
 
     boolean PROTECTED = true;
 
+    /**
+     * Shows if user should be logged in for using this command.
+     * @return true, if protected.
+     */
     boolean isProtected();
 
     Page executeGet(HttpServletRequest request, HttpServletResponse response);
