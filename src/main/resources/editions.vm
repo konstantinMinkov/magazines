@@ -1,0 +1,5 @@
+#foreach ($edition in $editions)
+
+<b>$edition.name</b>
+    $edition.description.substring(0, 100)... <a href="http://localhost.com/edition?id=$edition.id">Find out more >></a>
+#end

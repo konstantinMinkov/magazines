@@ -1,0 +1,7 @@
+.credentials
+.idea
+lib
+out
+sql
+target
+web-project-minkov.iml
