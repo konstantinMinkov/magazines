@@ -24,4 +24,5 @@ public class Routes {
     public static final String ADMIN_EDITION_PAGE = PARTIALS_FOLDER + "admin-edition.jsp";
     public static final String SEARCH = PARTIALS_FOLDER + "search.jsp";
     public static final String REGISTRATION_CONFIRMATION = PARTIALS_FOLDER + "registration-confirmation.jsp";
+    public static final String PAYMENT = PARTIALS_FOLDER + "payment.jsp";
 }

@@ -16,4 +16,8 @@ public class ValidatorProvider {
     public static Validator getEditionModificationValidator(String languageTag) {
         return new EditionModificationValidator(languageTag);
     }
+
+    public static Validator getCardValidator(String languageTag) {
+        return new CardValidator(languageTag);
+    }
 }

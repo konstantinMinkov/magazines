@@ -31,6 +31,10 @@ public class ErrorsHolder {
     public static final String INVALID_PRICE = "price.invalid";
     public static final String INVALID_EDITIONS_PER_MONTH = "editionsPerMonth.invalid";
     public static final String NULL_IMAGE = "image.null";
+    public static final String INVALID_FULL_NAME = "card.fullName.invalid";
+    public static final String INVALID_CARD_NUMBER = "card.number.invalid";
+    public static final String INVALID_DATE = "card.date.invalid";
+    public static final String INVALID_CV = "card.cv.invalid";
 
     private static final String ERRORS_BUNDLE_NAME = "errors";
     private static final Map<Locale, ErrorsHolder> LOCAL_ERRORS = new HashMap<>();

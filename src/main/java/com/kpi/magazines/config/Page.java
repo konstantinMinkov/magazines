@@ -21,6 +21,7 @@ public class Page {
     public static final Page ADMIN_EDITION = new Page(Commands.ADMIN_EDITION, Routes.ADMIN_EDITION_PAGE);
     public static final Page SEARCH = new Page(Commands.SEARCH, Routes.SEARCH);
     public static final Page CONFIRM_REGISTRATION = new Page(Commands.CONFIRM_REGISTRATION, Routes.REGISTRATION_CONFIRMATION);
+    public static final Page PAYMENT = new Page(Commands.PAYMENT, Routes.PAYMENT);
 
     private String defaultCommand;
     private String pageRoute;

@@ -20,4 +20,5 @@ public class Commands {
     public static final String MODIFY_EDITION = "modifyEdition";
     public static final String SEARCH = "search";
     public static final String CONFIRM_REGISTRATION = "confirm";
+    public static final String PAYMENT = "payment";
 }

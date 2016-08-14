@@ -20,5 +20,6 @@ public class UserCommandPool extends AbstractCommandPool {
         addCommand(Commands.CART, new CartCommand(Command.PROTECTED));
         addCommand(Commands.SEARCH, new SearchCommand());
         addCommand(Commands.CONFIRM_REGISTRATION, new ConfirmRegistrationCommand());
+        addCommand(Commands.PAYMENT, new PaymentCommand(Command.PROTECTED));
     }
 }
