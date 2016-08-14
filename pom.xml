@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.epam.magazines</groupId>
+    <groupId>com.kpi.magazines</groupId>
     <artifactId>magazines</artifactId>
     <version>1.0</version>
     <build>

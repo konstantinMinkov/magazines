@@ -1,8 +1,8 @@
 package com.kpi.magazines.dao.orm;
 
-import com.epam.minkov.dao.orm.utils.EntityMetadata;
-import com.epam.minkov.dao.orm.utils.StatementsHolder;
-import com.epam.minkov.database.ConnectionManager;
+import com.kpi.magazines.dao.orm.utils.EntityMetadata;
+import com.kpi.magazines.dao.orm.utils.StatementsHolder;
+import com.kpi.magazines.database.ConnectionManager;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;

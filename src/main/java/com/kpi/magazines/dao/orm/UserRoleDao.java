@@ -1,18 +1,18 @@
 package com.kpi.magazines.dao.orm;
 
-import com.epam.minkov.beans.UserRole;
+import com.kpi.magazines.beans.UserRole;
 
 /**
  * Created by Konstantin Minkov on 24.06.2016.
  */
-public class UserRoleDao extends AbstractDao<com.epam.minkov.beans.UserRole> {
+public class UserRoleDao extends AbstractDao<UserRole> {
 
     static {
-        registerDao(com.epam.minkov.beans.UserRole.class);
+        registerDao(UserRole.class);
     }
 
     @Override
-    protected Class<com.epam.minkov.beans.UserRole> getEntityClass() {
+    protected Class<UserRole> getEntityClass() {
         return UserRole.class;
     }
 }
