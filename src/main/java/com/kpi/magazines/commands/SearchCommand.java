@@ -12,6 +12,8 @@ import java.util.List;
 
 /**
  * Created by Konstantin Minkov on 26.07.2016.
+ *
+ * Command for search screen.
  */
 public class SearchCommand extends AbstractCommand {
 
