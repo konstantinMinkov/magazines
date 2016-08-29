@@ -27,6 +27,39 @@
                         <fmt:message key="paymentsHistory"/>
                     </h1>
                 </div>
+                <div class="center-align">
+                    <c:choose>
+                        <c:when test="${errors == null}">
+                            <br>
+                        </c:when>
+                        <c:otherwise>
+                            <br>
+                            <div class="alert alert-danger" role="alert">
+                                <strong>
+                                    <fmt:message key="oops"/>
+                                </strong>
+                                    ${errors.getError("general")}
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                    <form method="post" action="/admin/profile" class="form-inline">
+                        <div class="form-group">
+                            <label>
+                                <fmt:message key="date.from"/>
+                            </label>
+                            <input type="datetime-local" name="from" class="form-control" value="${param.get("from")}">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <fmt:message key="date.to"/>
+                            </label>
+                            <input type="datetime-local" name="to" class="form-control" value="${param.get("to")}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <fmt:message key="search"/>
+                        </button> <br>
+                    </form>
+                </div>
                 <div class="panel-body">
                     <table class="table table-hover">
                         <thead>

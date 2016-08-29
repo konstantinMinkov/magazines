@@ -10,31 +10,39 @@ import com.kpi.magazines.dao.basic.interfaces.*;
  */
 public class DaoManager {
 
+    private static final UserDao USER_DAO = new UserMySqlDao();
+    private static final UserRoleDao USER_ROLE_DAO = new UserRoleMySqlDao();
+    private static final SubscriptionDao SUBSCRIPTION_DAO = new SubscriptionMySqlDao();
+    private static final PaymentDao PAYMENT_DAO = new PaymentMySqlDao();
+    private static final IssueDao ISSUE_DAO = new IssueMySqlDao();
+    private static final EditionDao EDITION_DAO = new EditionMySqlDao();
+    private static final CategoryDao CATEGORY_DAO = new CategoryMySqlDao();
+
     public static UserDao getUserDao() {
-        return new UserMySqlDao();
+        return USER_DAO;
     }
 
     public static UserRoleDao getUserRoleDao() {
-        return new UserRoleMySqlDao();
+        return USER_ROLE_DAO;
     }
 
     public static SubscriptionDao getSubscriptionDao() {
-        return new SubscriptionMySqlDao();
+        return SUBSCRIPTION_DAO;
     }
 
     public static PaymentDao getPaymentDao() {
-        return new PaymentMySqlDao();
+        return PAYMENT_DAO;
     }
 
     public static IssueDao getIssueDao() {
-        return new IssueMySqlDao();
+        return ISSUE_DAO;
     }
 
     public static EditionDao getEditionDao() {
-        return new EditionMySqlDao();
+        return EDITION_DAO;
     }
 
     public static CategoryDao getCategoryDao() {
-        return new CategoryMySqlDao();
+        return CATEGORY_DAO;
     }
 }

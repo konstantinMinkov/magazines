@@ -83,20 +83,18 @@ public class ConnectionManager {
      *
      * @return Connection from pool, or new instance if pool is empty.
      */
-    public static Connection getConnection() {
+    public static synchronized Connection getConnection() {
         if (pool.size() != 0) {
             return pool.poll();
         }
-        synchronized (ConnectionManager.class) {
-            return createConnection();
-        }
+        return createConnection();
     }
 
     /**
      * Put Connection to pool after usage.
      * @param connection
      */
-    public static void returnConnection(Connection connection) {
+    public static synchronized void returnConnection(Connection connection) {
         if ( !pool.contains(connection)) {
             pool.offer(connection);
         }
